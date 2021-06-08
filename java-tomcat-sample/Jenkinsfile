@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy in Staging Environment'){
             steps{
-                build job: 'maven pipeline project'
+                build job: 'copyartifact'
 
             }
             
@@ -24,7 +24,7 @@ pipeline {
                 timeout(time:5, unit:'DAYS'){
                     input message:'Approve PRODUCTION Deployment?'
                 }
-                build job: 'maven pipeline project'
+                build job: 'copy artifact prod'
             }
         }
     }
